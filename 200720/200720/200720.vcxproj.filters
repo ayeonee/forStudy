@@ -18,5 +18,8 @@
     <ClCompile Include="lecture42.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="lecture46.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
