@@ -50,3 +50,4 @@ console.log(!false);
 var a=1, b=2;
 
 (a>b)? (console.log("a is bigger than b")):(console.log("a is smaller than b"));
+
