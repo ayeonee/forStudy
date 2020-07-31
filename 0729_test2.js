@@ -65,7 +65,7 @@ var array3=new Array(3);
 array3;
 typeof array1; // "object"
 array1.toString(); //toString : 숫자 타입을 문자 타입으로 변환.
-array1.valueOf(); 
+array1.valueOf(); //valueOf는 배열의 구성요소를 문자열 형태로 돌려주는 역할을 수행합니다. 즉, 배열의 값이 문자열이 아닌 경우 문자로 반환해야 할 시 사용
 array1.length; //3
 array1.length=5;
 array1; //[1,2,3] undefinedx2
