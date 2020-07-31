@@ -43,3 +43,20 @@ invoke_and_add(one, function(){
 }); //인자로 넘겨주는 동시에 익명 함수를 생성하여 전달.
 
 
+//익명 함수로 제곱값 출력하기
+const readline = require("readline");
+const rl = readline.createInterface({
+	input: process.stdin,
+	output: process.stdout
+});
+
+var f = function(a){
+	return a*a;
+};
+
+rl.on("line", function(line) {
+	console.log(f(line));
+	rl.close();
+}).on("close", function() {
+	process.exit();
+});
