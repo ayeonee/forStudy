@@ -1,20 +1,109 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-EndGlobal
+//MoveObject.cs
+
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Security.Cryptography;
+using System.Threading;
+using UnityEngine;
+
+public class MoveObject : MonoBehaviour
+{
+    float speed = 20.0f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float position = Input.GetAxis("Vertical"); //vertical = 세로, 위 방향키는 1, 아래방향키는 -1, 안 누르면 0 반환
+        position = position * speed * Time.deltaTime; //deltaTime : 프레임 사이의 시간. TIme.deltaTIme은 여러 단말마다 다른 성능 가진 것을 상쇄시켜주어 어느 사용자든 다 똑같이 보이게 함.
+        transform.Translate(Vector3.forward * position); //forward : z축(0,0,1)
+
+        float position2 = Input.GetAxis("Horizontal");
+        position2 = position2 * speed * Time.deltaTime;
+        transform.Translate(Vector3.right * position2);
+    }
+}
+
+//TestClass.cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TestClass : MonoBehaviour
+{
+    int a = 1;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Score();
+    }
+
+    // Update is called once per frame
+    void Update()
+    { 
+    }
+    void Score()
+    {    int b = 70;
+        if (b >= 90) print("90점 이상입니당.");
+        else if (b >= 80) print("80점 이상입니당.");
+        else print("80점 미만입니당.");
+    }
+    private void OnMouseEnter()
+    {
+        print("마우스가 들어왔습니당");
+    }
+    private void OnMouseExit()
+    {
+        print("마우스가 나갔습니당");
+    }
+    private void OnMouseDown()
+    {
+        print("마우스 버튼을 클릭햇서염");
+    }
+    private void OnMouseUp()
+    {
+        print("마우스 버튼 떨어졌서염" + a+"번 눌렀슴");
+        a++;
+    }
+}
+
+//Translate.cs
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Security.Cryptography;
+using UnityEngine;
+
+public class Translate : MonoBehaviour
+{
+    Vector3 v3;
+    float speed = 20.0f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        v3 = new Vector3(0, 1, 0);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float position = Input.GetAxis("Vertical"); 
+        position = position * speed * Time.deltaTime; 
+        transform.Translate(Vector3.forward * position);
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Rotate(v3);
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Rotate((-1) * v3);
+       }
+    }
+}
