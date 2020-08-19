@@ -1,0 +1,46 @@
+p {
+	color:red;
+}
+
+#groom{
+	color:blue;
+}
+
+.mafia{
+	color:white;
+	background-color:black;
+}
+
+.citizen{
+	color:white;
+	background-color:green;
+}
+
+a[target="_blank"]{
+	color : red;
+}
+
+.link[target="_self"]{
+	color:pink;
+}
+
+/* 가상클래스 선택자 */
+/*방문하지 않은 링크일때 */
+a:link{
+	color : turquoise;
+}
+
+/*방문한 링크일 때 */
+a:visited{
+	color : green;
+}
+
+/* 링크에 마우스를 올렸을 때 */
+a:hover{
+	background-color : yellow;
+}
+
+/*선택된 링크일 때*/
+a:active{
+	background-color : blue;
+}
