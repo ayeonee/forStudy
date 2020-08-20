@@ -1,0 +1,44 @@
+body { background-color: skyblue; }
+.inner {
+	background-color: pink;
+	width: 200px;
+	height: 100px;
+}
+#target{
+	border-color:black;
+	border-style:solid dashed dotted double;
+	border-width: 8px;
+	border-radius : 12px
+	/* border : red solid 1px 처럼 한번에 지정 가능(shortcut) */
+}
+
+.inner {
+	background-color: lemonchiffon;
+	border-width: 4px;
+}
+.one {
+	border-style: solid;
+	border-color: black;
+}
+.two {
+	border-style: solid dashed;
+	border-color: red;
+}
+.three{
+	border-style: solid dashed dotted;
+	border-color: blue;
+}
+.four{
+	border-style: solid dashed dotted double;
+	border-color: green;
+}
+
+.box {
+	display: inline-block;
+	background: pink;
+	width: 100px;
+	height: 100px;
+	border: 8px solid red;
+	margin: 12px 24px 32px 63px;
+	padding: 6px 12px 24px 32px;
+}

@@ -81,3 +81,46 @@ p.55 선택자 - <가상 클래스 선택자>
 	a:visited (방문한 링크일 때)
 	a:hover (링크에 마우스를 올렸을 때)
 	a:active (선택된 링크일 때)
+
+p.58 Box 모델
+HTML의 모든 요소가 상자 형태를 가진다 = 브라우저에 출력되는 컨텐츠가 사각형 박스 형태로 출력.
+박스모델 : 내용(Content) + 패딩(Padding) + 경계선(Border) + 마진(Margin)
+	내용 : 이미지나 텍스트같이 코드 상에서 태그 사이에 담은 내용. 실제로 담고 있는 부분
+	경계선 : 내용(content)을 감싸고 있는 테두리
+	패딩 : 컨텐츠와 경계선 사이의 여백
+	마진 : 경계선 밖의 여백
+
+p.59 content
+width, height : 너비와 크기는 box 모델 중 content의 크기에 해당. 컨텐츠 영역의 크기가 지정되어 있는 상태에서 컨텐츠의 크기를 늘리면 컨텐츠 박스를 벗어남.
+	컨텐츠 박스의 내용이 컨텐츠 박스에 지정된 크기보다 크더라도 컨텐츠 박스를 기준으로 배치됨. (마진, 패딩 등이 없는 경우)
+
+p.60 border
+border-style : 선의 스타일, 선의 종류를 지정함. (none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset | initial | inherit)
+	자주 사용하는 4가지 : 실선(solid), 파선(dashed), 점선(dotted), 이중선(double)
+	네 방향의 스타일을 동시에 적용하면 top, right, bottom, left의 순서로 스타일 지정.
+	방향을 지정하는 프로퍼티(ex. border-top-style : solid;)와 함께 사용하지 않는 이상, 사용하는 개수에 따라 적용되는 스타일의 위치가 달라짐.
+
+border-width, border-color : 선의 두께와 색 지정. body-style 없이 지정했을 땐 적용되지 않음.
+	style과 마찬가지로 사용하는 개수에 따라 적용되는 위치가 달라지고, 위치를 지정하여 따로 스타일 지정 가능
+
+shortcut 속성 : border 프로퍼티는 shortcut으로 한번에 지정 가능. 
+	border : red solid 1px;
+	border-bottom : red solid 1px; (한 면만 지정하고 싶으면)
+
+border-radius : border로 만든 경계선을 둥글게 표현할 때 사용. 테두리 존재 여부와 별개로 전체 background에 적용됨. 원이나 모서리가 둥근 사각형을 만들고 싶다면 border 없이 border-radius 이용.
+	border-radius : 12px; (여기서 px은 모서리 반지름의 값)
++shortcut 이용하여 한번에 지정하거나 네 방향으로 나누어 부분적용 가능.
++타원형의 radius 적용 : 가로 반지름 적고 세로 반지름 적음. (ex. 24px 12px)
++네 모서리에 모두 적용하고 싶다면 /로 구분. (ex. border-radius: 8px 16px 24px 36px / 36px 24px 16px 8px;) 
+
+p.61 padding과 margin
+border 기준으로 경계선 내부 여백을 패딩(padding), 경계선 외부 여백을 마진(margin).
+네 방향 따로 혹은 한꺼번에 모두 적용 가능.
+	margin : 12px 24px 32px 63px; /*상 우 하 좌*/
+	padding : 6px 12px 24px 32px; /*상 우 하 좌*/
+
+마진 상쇄 : 위 아래로 맞닿은 두 요소 사이 마진은 더 큰쪽을 기준으로 결정. 두 요소에 각각 마진을 적용하더라도 서로 맞닿아 있다면 마진이 따로 존재하지 않음.
+
+box-sizing : content-box; --> content-box 기준으로 크기를 정함.
+box-sizing : border-box; --> border 바로 전 padding까지를 기준으로 정함.
+즉, 기본 값인 content-box의 width 값은 컨텐츠만의 사이즈. border-box는 컨텐츠의 크기와 패딩까지 합한 값.
