@@ -124,3 +124,35 @@ border 기준으로 경계선 내부 여백을 패딩(padding), 경계선 외부
 box-sizing : content-box; --> content-box 기준으로 크기를 정함.
 box-sizing : border-box; --> border 바로 전 padding까지를 기준으로 정함.
 즉, 기본 값인 content-box의 width 값은 컨텐츠만의 사이즈. border-box는 컨텐츠의 크기와 패딩까지 합한 값.
+
+p.64 글자 관련 스타일
+폰트(Font) 관련 프로퍼티 : 크기(font-size), 종류(font-family), 형태(font-style, font-weight)
+
+font-family : 일반적으로 한 단어로 구성된 폰트명은 따옴표 없이 사용 가능, but 띄어쓰기 또는 -이 들어간 폰트명은 따옴표를 사용하여 하나의 폰트명임을 명시.
+	모든 이용자의 기기에 동일한 폰트가 없을 수도 있기에 폰트를 여러개 지정하여 앞 순서에 위치한 폰트부터 차례로 적용. 첫번째 폰트가 없으면 두번째 폰트를 적용.
+	때문에 항상 마지막 폰트는 모든 OS 및 브라우저에 기본으로 설치된 일반 글꼴을 두어 실행. (보통 Sans-serif, Serif, Cursive, Fantasy, Monospace..)
+	font-family: '폰트이름1', '폰트이름2';
++웹폰트(Web Font) : 링크를 통해 폰트를 불러오는 방식. 
+	구글폰트-폰트선택-원하는 굵기 선택-Select this style-오른쪽상단메뉴-Embed-<link>와 @import 두 방식으로 불러옴.
+	<link> 방식 : <link> 태그 이용하여 폰트 가져오기
+	@import 방식 : CSS파일에 <style> 태그 제거 후 @import 작성 or HTML 파일에 <style> 태그 이용
+
+p.65 폰트의 크기와 형태
+font-sytle : normal(기본 값), italic(이탤릭체가 디자인되어 있는 폰트에서 사용), oblique(이탤릭체 디자인이 없더라도 무조건 글자를 기울여서 표현)
+font-weight : 폰트 굵기 지정할 때 사용. bold 혹은 100~900의 숫자값 사용.(보통 normal이 400, bold가 700)
+일일이 font 관련 프로퍼티 적용이 불편할 수 있기에 font 프로퍼티를 써서 모든 과정 한번에 설정가능.
+	font: font-style font-weight font-size font-family 순서로 띄어쓰기로 구분하여 작성. 순서를 반드시 지켜야 하며 font-style과 font-weight는 생략해도 무관.
+
+p.66 텍스트 정렬
+text-align : (left right center) 텍스트 좌, 우, 중앙 정렬.
+	해당 정렬 기준은 '본인'. 부모요소나 웹의 크기와 상관없이 text-align이 적용된 해당 요소를 기준으로 정렬.
+	+justify : 좌우로 띄어쓰기를 늘려 붙임. 
+
+line-height : 문장 사이의 간격을 조정하는 프로퍼티. 
+	line-height : 2 or 28px; (단위 없는 숫자 값은 해당 요소의 font-size를 기준 한 배수로 높이를 조정)
+
+letter-spacing : 자간(글자 사이의 간격 조정)
+	letter-spacing : 5px; 
+
+text-indent : 문단 시작부에 들여쓰기 저장.
+	text-indent : 16px;
