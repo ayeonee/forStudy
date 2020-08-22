@@ -1,0 +1,33 @@
+h1, div, p, article, li{
+	background-color:pink;
+}
+span, a, strong{
+	background-color:skyblue;
+}
+
+.display_block{
+	background-color:pink;
+	
+}
+.display_inline{
+	background-color:skyblue;
+}
+.display_inline-block{
+	display:inline-block;
+	background-color:lemonchiffon;
+}
+.box{
+	width: 200px;
+	height: 200px;
+	margin:24px;
+	padding:24px;
+}
+
+li{
+	border: 1px solid red;
+	padding:12px 24px;
+	margin-bottom: 8px;
+}
+li.hidden{
+	display:none;
+}

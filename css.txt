@@ -156,3 +156,32 @@ letter-spacing : 자간(글자 사이의 간격 조정)
 
 text-indent : 문단 시작부에 들여쓰기 저장.
 	text-indent : 16px;
+
+p.69 위치 정렬 - block과 inline
+display : 요소가 보여지는 방식을 지정하는 프로퍼티. 기본 값으로 block 혹은 inline 가지고 있음.
+display:block : 항상 새로운 줄에서 시작, 따로 너비를 지정하지 않아도 width 100%를 기본값으로 가짐. 크기를 직접 지정한다면 자동으로 남은 길이를 margin으로 채움.(div, h1~h6, p, header, footer, section..)
+display:inline : 새로운 줄에서 시작하지 않고 필요한 만큼(요소의 컨텐츠 크기만큼)의 너비만 가짐. 부모의 너비 안에서 한 줄에 들어갈 수 있는만큼 일렬로 배치. (span,a,img...)
+	block은 전체 문단과 같이 큰 맥락을 가질 때 사용하지만 inline은 그 안에 들어가는 단어, 링크, 이미지 등에 쓰임.
+	block이 쓸 수 있는 프로퍼티 : width, height, margin, padding 모두 사용 가능
+	inline은 width, height, margin-top, margin-bottom 프로퍼티 지정 불가능.
+
+p.70 위치 정렬 - inline-block
+(display:inline 에서 width, heightm margin-top, margin-bottom 프로퍼티가 적용되지 않는 것을 해결하기 위해)
+display: inline-block : block 과 inline의 특징을 모두 가짐. 기본적인 쓰임은 inline과 동일하지만 사용할 수 없었던 프로퍼티 지정 가능.
+
+display:none : 브라우저에 해당 요소가 출력되지 않음.
+
+p.71 위치 정렬 - position
+position : 요소를 배치하는 방법을 정하는 프로퍼티.
+position:static : static이 기본. static 에서는 좌표 프로퍼티(top, right, bottom, left) 사용 불가.
+position:relative : 상대 위치. 기본 위치를 기준으로 좌표 프로퍼티를 이용하여 위치 이동. 
+	(left:16px; top:16px;) 라면 원래 위치보다 위에서 16px, 왼쪽에서 16px 만큼 멀어지게 됨.
+position:absolute : 절대 위치. 부모 요소나 조상 요소 중 relative, absoulte, fixed가 선언된 곳을 기준으로 좌표 프로퍼티 작동.
+	부모나 조상 프로퍼티에 relative, absolute, fixed가 없다면 최상단 태그인 <body> 기준으로 위치 지정.
+position:fixed : 보이는 화면을 기준으로 좌표 프로퍼티를 이용하여 위치를 고정 시킴. 스크롤할때 따라다니는 메뉴가 fixed 활용한 것.
+
++z-index : 수직으로 어떻게 쌓이는지 정함. 값은 숫자로 표현되고 숫자가 클수록 전면에 출력. static 제외한 요소에서만 적용.
+
+p.72 위치 정렬 - float
+float : 요소를 디자인 흐름에서 벗어나게 한 뒤, 사용자가 지정한 방향에 배치하도록 하는 프로퍼티.
+	float : left; or right;
