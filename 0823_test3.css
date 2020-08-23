@@ -1,0 +1,128 @@
+.box{
+	width: 96px;
+	height: 48px;
+	background-color: #fff;
+	border: 4px solid pink;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 8px;
+}
+.container{
+	display:flex;
+	width:400px;
+	height:200px;
+	flex-wrap: wrap; /*align-content를 위해서는 반드시 필요*/
+}
+.row{
+	background-color: skyblue;
+	flex-direction: row;
+}
+.column{
+	background-color: lemonchiffon;
+	flex-direction: column;
+}
+.start{
+	align-content: flex-start; /*여러줄에 걸친 item들이 한 몸처럼 움직임*/
+	/*align-items: flex-start; 하면 각 줄이 따로 나뉘어 정렬*/
+}
+.center{
+	align-content: center;
+}
+.end{
+	align-content : flex-end;
+}
+.between{
+	align-content:space-between;
+}
+.around{
+	align-content: space-around;
+}
+
+/*item grow*/
+.containeri{
+	background-color: skyblue;
+	height: 36px;
+	padding : 12px;
+	margin-bottom : 16px;
+	display: flex;
+	width: 400px;
+}
+.itemi{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #fff;
+	background: pink;
+	flex-grow: 1;
+}
+.target{
+	background-color: lemonchiffon;
+	flex-grow: 2;
+}
+.none{
+	background-color : gray;
+	flex-grow:0;
+}
+
+/*item shrink*/
+.items{
+	/*텍스트 가운데 정렬을 위한 스타일*/
+	width: 200px;
+	display : flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #fff;
+	background: pink;
+}
+.nones > .items{
+	flex-shrink:0;
+}
+
+.active > .items{
+	flex-shrink:1;
+}
+.targets > .itmes:first-child{
+	flex-shrink:1;
+}
+.targets > .items:nth-child(2){
+	flex-shrink:5;
+}
+.targets > .items:last-child{
+	flex-shrink:3;
+}
+
+
+
+/* flex item */
+
+.containerf {
+	background-color: skyblue;
+	height: 48px;
+	padding: 12px;
+	margin-bottom: 16px;
+	display: flex;
+	width: 400px;
+}
+.itemf {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #fff;
+	background: pink;
+	flex-grow: 1;
+}
+.grow {
+	flex-grow: 2;
+}
+
+.auto > .itemf{
+	flex-basis : auto;
+}
+
+.nonef > .itemf{
+	flex-basis : 0;
+}
+
+.numb > .itemf{
+	flex-basis : 100px;
+}
