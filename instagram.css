@@ -1,0 +1,36 @@
+.login{
+	border: lightgray solid 0.5px;
+	box-sizing: border-box;
+	padding-top : 10px;
+	padding-bottom : 10px;
+	display : flex;
+}
+
+.main{
+	width : 350px;
+	height : 370px;
+}
+
+.join{
+	width :350px;
+	height : 63px;
+}
+#logoimage{
+	width:175px;
+	height:70px;
+	align-items:center;	
+	
+}
+#appimage{
+	width: 136px;
+	height: 43.2px;
+	margin-right:6px; 
+}
+#googleimage{
+	width: 136px;
+	height: 43.2px;
+}
+h3{
+	font-size : 
+	text-align:center;
+}
