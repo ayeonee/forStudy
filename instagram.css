@@ -1,25 +1,56 @@
-.login{
-	border: lightgray solid 0.5px;
-	box-sizing: border-box;
-	padding-top : 10px;
-	padding-bottom : 10px;
+body{
+	height : 100vh;
+	margin : 0;
+	background-color : #F7F7F7;
+}
+.signup-page{
+	height: 100%;
 	display : flex;
+	flex-direction : column;
+}
+.signup{
+	flex-grow : 1; /* footer 바닥에 붙어있게 하기 위해 */
+}
+.signup > article{
+	width:100%;
+	max-width: 935px;
+	margin: 30px auto 0;
+	display : flex;
+	justify-content : center;
+}
+.insta-example-img{
+	position:relative;
+	right:120px;
+	z-index: 50;
+	height: 620px;
+	flex : 0 0 450px; /*container의 크기가 줄어도 item 줄어들지 않게 하고 최소 크기 정해줌*/
+	background-image : url(https://www.pngitem.com/pimgs/m/422-4220612_clip-art-instagram-mockup-instagram-in-phone-mockup.png);
+	background-position : center;
+	background-size : contain;
+	background-repeat : no-repeat;
+}
+.insta-example-img2{
+	position : relative;
+	bottom : 20px;
+	left : 100px;
+	z-index : 0;;
+	height : 580px;
+	flex : 0 0 450px;
+	background-image: url(https://www.pngitem.com/pimgs/m/624-6245511_instagram-fomo-free-iphone-hd-png-download.png);
+	background-position: center;
+	background-size : contain;
+	background-repeat: no-repeat;
+}
+.signup-content-container{
+	max-width : 350px;
+	width:100%;
 }
 
-.main{
-	width : 350px;
-	height : 370px;
-}
-
-.join{
-	width :350px;
-	height : 63px;
-}
 #logoimage{
-	width:175px;
-	height:70px;
-	align-items:center;	
-	
+	width:185px;
+	height:80px;
+	margin-top : 10px;
+	margin-bottom : 10px;
 }
 #appimage{
 	width: 136px;
@@ -30,7 +61,18 @@
 	width: 136px;
 	height: 43.2px;
 }
-h3{
-	font-size : 
+
+input{
+	width : 250px;
+	height : 30px;
+	margin-bottom : 5px;
+}
+button{
+	width : 250px;
+	height : 28px;
+	margin top: 3px;
 	text-align:center;
+	background-color : skyblue;
+	color : white;
+	border-radius : 5px;
 }
