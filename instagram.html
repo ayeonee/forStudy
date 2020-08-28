@@ -9,31 +9,51 @@
 		<main class="signup-page">
 			<section class="signup">
 				<article>
-					<div class="insta-example-img2"></div>
 					<div class="insta-example-img"></div>
 					<div class="signup-contents-container">
-						<form action="my-form" method="post">
-							<img src="https://fontmeme.com/images/instagram-new-logo.png" id="logoimage" alt="image load fail"><br>
-							<input type="text" name="id" placeholder="전화번호, 사용자 이름 또는 이메일"><br>
-							<input type="password" name="password" placeholder="비밀번호"><br>
-							<button type="submit">로그인</button> <br>
-							<p> 또는 </p>
-							<a href="http://facebook.com" target="_blank">Facebook으로 로그인</a><br>
-							<a href="https://www.instagram.com/accounts/password/reset/" target="_self">비밀번호를 잊으셨나요?</a>
-						</form>
-						
-						<p>계정이 없으신가요?
-						<a href="https://www.instagram.com/accounts/emailsignup/" target="_self">가입하기</a>
-						</p>
-						<p>
-							앱을 다운로드하세요.
-						</p>
-						<a href="https://apps.apple.com/app/instagram/id389801252?vt=lo" target="_blank">
-							<img src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_korean-ko.png/4a5c9d62d51b.png" id ="appimage" alt="image load fail">
-						</a>
-						<a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3DC7C44488-5876-4F0E-A655-F4EFE01F6BE5%26utm_content%3Dlo%26utm_medium%3Dbadge" target="_blank">
-							<img src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_korean-ko.png/f155b664a93b.png" id="googleimage" alt="image load fail">
-						</a>
+						<div class="signup-form-container">
+							<h1>
+								instagram
+							</h1>
+							<div class="signup-form">
+								<form method="post">
+									<div class="input-container">
+										<input type="text" name="id" placeholder="전화번호, 사용자 이름 또는 이메일">
+									</div>
+									<div class="input-container">
+										<input type="password" name="password" placeholder="비밀번호">
+									</div>
+									<div class="btn-container">
+										<button>로그인</button>
+									</div>
+									<div class="divider-container">
+										<div class="divider"></div>
+										<div class="divider-text">또는</div>
+										<div class="divider"></div>
+									</div>
+									<div class="facebook-container">
+										<a href="http://facebook.com" target="_blank"><i class="fab fa-facebook-square"></i> Facebook으로 로그인</a>
+									</div>
+									<div class="forgot-container">
+										<a href="https://www.instagram.com/accounts/password/reset/" target="_self">비밀번호를 잊으셨나요?</a>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="account-check">
+							<p class="account-check-title">계정이 없으신가요? <a href="https://www.instagram.com/accounts/emailsignup/" target="_self">가입하기</a></p>
+						</div>
+						<div class="download-app">
+							<p>
+								앱을 다운로드하세요.
+							</p>
+							<div class="appimg">
+								<a href="https://apps.apple.com/app/instagram/id389801252?vt=lo" target="_blank"><img src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_korean-ko.png/4a5c9d62d51b.png" id="appleimg"></a>
+								<a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3DC7C44488-5876-4F0E-A655-F4EFE01F6BE5%26utm_content%3Dlo%26utm_medium%3Dbadge" target="_blank">
+								<img src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_korean-ko.png/f155b664a93b.png" id="googleimg"></a>
+							</div>
+							
+						</div>
 					</div>
 				</article>
 			</section>
@@ -41,5 +61,6 @@
 				
 			</footer>
 		</main>
+		<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js">	</script>
 	</body>
 </html>
