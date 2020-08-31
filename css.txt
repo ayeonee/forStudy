@@ -399,3 +399,4 @@ p.97 우선순위
   사용하려는데에다가 <i class="fab fa-facebool=square">
 13. flex 로 크기 조정하기.
 14. a 속성의 기본 설정 값 지워주기 : text-decoration : none;
+15. html 에서 <span>태그 : spac 태그 내부에 객체가 들어가면 그 객체의 크기만큼 공간이 할당. 

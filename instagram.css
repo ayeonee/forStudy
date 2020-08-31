@@ -152,6 +152,43 @@ body{
 	margin : 3px;
 }
 #appleimg, #googleimg{
+	margin : 5px 3px;
  	height : 40px;
 	width : 150px;
+}
+
+.insta-info{
+	padding : 0 20px;
+}
+.insta-info-wrapper{
+	max-width: 1012px;
+	margin : 0 auto;
+	padding : 38px 0;
+	width: 100%;	
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.insta-info-navbar > ul{
+	text-align : center;
+	font-size : 12px;
+	font-weight: 600;
+	list-style: none;
+	margin : 0 5px;
+	display: flex;
+	flex-grow: 1;
+}
+.navbar-item{
+	margin-right : 16px;
+	margin-bottom: 7px;
+}
+.navbar-item > a{
+	text-decoration: none;
+	color : #00376b
+}
+
+.copyright{
+	font-size: 12px;
+	font-weight : 600;
+	color : #8e8e8e;
 }
