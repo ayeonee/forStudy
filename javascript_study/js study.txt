@@ -1,0 +1,71 @@
+head 태그안에 스크립트 넣기
+  window.onload=function(){
+            var title=document.getElementById("js");
+            console.log(title);
+        }
+        
+        window.addEventListener('load', function(){
+          var title=document.getElementById("js");
+           console.log(title);
+        }); //load 의 경우 전체 내용이 다 load될때 까지 기다림.
+
+        window.addEventListener('DOMContentLoaded', function(){
+          var title=document.getElementById("js");
+           console.log(title);
+        }); //DOM안의 element들만 인식이 되면 실행
+
+body 태그안에 스크립트 넣기
+
+변수의 유효범위(Scope)
+           함수를 방이라고 생각하고 방 안에서는 방밖을 볼수 있지만 방밖에서는 안을 못봄.
+           var에선 방이 함수지만 let에선 방이 {}임
+           전역변수 많이 만들지 말고 객체 만들어서 안에 선언. ex) var configMap{ 여기 선언 }
+           익명함수 : 이름이 필요없는 함수
+            var person={};
+            person.name="아연"; //속성(property)
+            person.introduce=function(){
+                console.log('안녕');   
+            }         //메서드(method)
+
+            var person2={
+                name:'Zena',
+                age:20,
+                introduce: function(){
+                    console.log('안녕');
+                }
+            }
+
+            생성자(constructor)
+            function Person(username, age){ //보통 대문자로
+                this.username=username;
+                this.age=age;
+                this.introduce=function(){
+                    console.log('안녕' +this.username);
+                }
+            }
+            인스턴스(instance)
+            var p1=new Person('아연', 22);
+
+            DOM = (Document Object Model)
+            DOM script : HTML요소들을 js로 조작하는 것
+            var maileTitle=document.querySelector('#js'); //querySelector의 경우 ()안에 css가져올때 처럼 쓰면 됨.
+                다가져올때는 querySelectorAll
+                속성 가져올때는
+                maileTitle.getAttribute('속성');
+                속성 바꿀때는
+                mailTitle.setAttribute('속성 이름', '바꿀 값');
+
+            link.classList.add("추가할 클래스");
+            link.classList.remove("제거할 클래스");
+            link.classList.contains("클래스 있는지 없는지 bool형으로 반환");
+            var listElem=document.createElement('태그 이름');
+            listElem.innerHTML='방금 만든 태그안에 내용 넣기';
+            상위태그.appendChild(listElem); 하면 원하는 위치에 넣기
+
+	이벤트함수에 on, listener, handler 쓰면 좋음.
+	this로 현재 클릭한 것 잡아낼 수 있음.
+
+이벤트 위임 : 여러 개의 항목에 이벤트 할 때 이를 포함하고 있는 부모 태그에게 넘겨줌.
+이벤트 객체 : 발생한 이벤트에 대한 많은 정보를 담고 있는 것
+	이벤트객체.target = 내가 이벤트 발생 시킨 것 나타냄.
+이벤트 위임 좋은 점 : addEventListenr 한번만 쓰니까 성능적으로 좋음
