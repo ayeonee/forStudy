@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>자바스크립트 기초</title>
+    <style>
+        .menu-link{
+            margin : .1em;
+            padding: .3em;
+            color: #fff;
+            text-decoration: none;
+            background: dodgerblue;
+            list-style: none;
+        }
+
+        .menu{
+            background: yellowgreen;
+        }
+        .menu-active{
+            background: orange;
+        }
+    </style>
+   
+</head>
+    <body>
+        <h1 id="main-title"> Event
+        </h1>
+
+        <nav class="menu">
+            <a href="#" class="menu-link" data-menu="1">menu 1</a>
+            <a href="#" class="menu-link" data-menu="2">menu 2</a>
+            <a href="#" class="menu-link" data-menu="3">menu 3</a>
+        </nav>
+        <script>
+        //    var menuLinks = document.querySelectorAll('.menu-link');
+        //    var currentMenu; //현재 활성화된 메뉴를 담을 변수
+        //    function clickMenuHandler(){
+        //        if(currentMenu){
+        //         currentMenu.classList.remove('menu-active');
+        //        }
+        //        this.classList.add('menu-active');
+        //        currentMenu=this;
+        //    }
+        //    for(var i=0; i<menuLinks.length; i++){
+        //        menuLinks[i].addEventListener('click', clickMenuHandler);
+        //    }
+
+        //이벤트 위임
+        var menu=document.querySelector('.menu');
+        function clickHandler(e){ //이벤트객체 e
+            // console.log(e.cuurentTarget); //this와 같음
+            // console.log(e.target); //이벤트된 타겟
+            if(currenMenu){
+                currentMenu.classList.remmove('menu-active');
+            }
+            e.target.classList.add('menu-active');
+            currentMenu=e.target;
+        }
+        menu.addEventListener('click', clickHandler);
+        </script>
+    </body>
+</html>

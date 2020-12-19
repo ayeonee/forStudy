@@ -1,0 +1,72 @@
+.box {
+	width: 96px;
+	height: 48px;
+	background-color: #fff;
+	border: 4px solid pink;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 8px;
+}
+.container {
+	background-color: skyblue;
+	padding: 16px;
+	display:flex;/*flex container에 해당하는 부분에 display: flex를 작성*/
+	flex-direction:row; /*기본값은 row*/
+	width:200px; 
+	flex-wrap: wrap; /*item들을 여러 줄에 나열하고 싶을 때. nowrap 이면 한줄로 정렬*/
+	
+	/*flex-flow: row wrap; flex-flow로 한번에 설정 가능*/
+} 
+
+/* justify-container */
+
+.box {
+	width: 80px;
+	height: 40px;
+	background-color: #fff;
+	border: 4px solid pink;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 8px;
+}
+.wrapper-row {
+	display: flex;
+	flex-direction : column;
+}
+.wrapper-column {
+	display: flex;
+	
+}
+
+.container {
+	display: flex;
+}
+.row {
+	background-color: skyblue;
+	flex-direction: row;
+	width:400px;
+
+}
+.column {
+	background-color: lemonchiffon;
+	margin-right: 24px;
+	flex-direction: column;
+	width: 100px;
+	height: 400px;
+}
+.start{
+	justify-content:flex-start;
+}
+.center{
+	justify-content:center;
+}
+.end{
+	justify-content:flex-end;
+}
+
+.between{
+	justify-content:space-between;
+}
+.around{
+	justify-content:space-around;
+}

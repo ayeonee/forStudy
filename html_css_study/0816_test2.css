@@ -1,0 +1,40 @@
+html{
+	background-color:skyblue;
+	font-size:32px;
+
+}
+
+/*#main{
+	background-color: bisque;
+		font-size:24px
+}
+
+#px{
+	background-color:red;
+	width: 16px;
+	height:16px;
+}
+
+#em{
+	background-color:blue;
+	width: 1em;
+	height:1em;
+}
+
+#rem{
+	background-color:yellow;
+	width: 1rem;
+	height:1rem;
+}*/
+html {
+	background-color: skyblue;
+	font-size: 32px;
+}
+#main {
+	background-color:rgb(102, 205, 170);
+	width: 50%;
+}
+#per {
+	background-color: #F08080;
+	width: 50%;
+}

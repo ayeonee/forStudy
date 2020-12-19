@@ -1,0 +1,194 @@
+body{
+	height : 100vh;
+	margin : 0;
+	background-color : #F7F7F7;
+}
+.signup-page{
+	height: 100%;
+	display : flex;
+	flex-direction : column;
+}
+.signup{
+	flex-grow : 1; /* footer 바닥에 붙어있게 하기 위해 */
+}
+.signup > article{
+	width:100%;
+	max-width: 935px;
+	margin: 50px auto 0;
+	display : flex;
+	justify-content : center;
+}
+.insta-example-img{
+	height: 620px;
+	flex : 0 0 450px; /*container의 크기가 줄어도 item 줄어들지 않게 하고 최소 크기 정해줌*/
+	background-image : url(https://www.pngitem.com/pimgs/m/422-4220612_clip-art-instagram-mockup-instagram-in-phone-mockup.png);
+	background-position : center;
+	background-size : contain;
+	background-repeat : no-repeat;
+}
+.signup-contents-container{
+	max-width : 350px;
+	width:100%;
+	text-align : center;
+	margin-top: 20px;
+}
+.signup-form-container, .account-check{
+	border: 1px solid #DBDBDB;
+	border-radius : 1px;
+	background: #fff;
+	margin : 0 0 10px;
+	padding: 10px 0;
+}
+.singup-form-container{
+	display : flex;
+	flex-direction : column;
+	justify-content : center;
+}
+.signup-form-container > h1{
+	font-size : 2.2rem;
+	margin : 22px auto 22px;
+}
+.signup-form > form{
+	display : flex;
+	flex-direction : column;
+}
+.input-container{
+	margin : 0px 40px 6px;
+	text-align: left;
+	display : flex;
+	justify-content : center;
+	background-color: #FAFAFA;
+	border : 1px solid #DBDBDB;
+	border-radius: 3px;
+}
+.input-container > input{
+	background : none;
+	outline : 0;
+	margin : 0;
+	border : 0;
+	font-size: 11px;
+	line-height: 18px;
+	color:#8e8e8e;
+	padding : 9px 0 7px 8px;
+	flex : 1;
+}
+.btn-container, .divider-container {
+	margin : 10px;
+}
+.btn-container > button{
+	width : 260px;
+	height : 30px;
+	color: #fff;
+	background-color : #0095f6;
+	border : 0;
+	border-radius : 5px;
+	font-size : 14px;
+	font-weight: bold;
+	cursor:pointer;
+}
+/*로고 크기 조정*/
+.btn-container .fa-facebook-square{
+	margin-right : 8px;
+} 
+
+.facebook-container{
+	margin : 15px 0px 20px;
+}
+.facebook-container > a{
+	text-decoration:none;
+	font-size : 14px;
+	line-height: 16px;
+	color: #3B5998;
+	font-weight: 600;
+}
+.forgot-containr{
+	margin-top: 5px;
+}
+.forgot-container > a{
+	text-decoration:none;
+	font-size : 12px;
+	line-height: 16px;
+	color : #262626;
+}
+
+.divider-container{
+	display : flex;
+	margin : 10px 45px 10px;
+	align-items: center;
+}
+.divider{
+	height: 1px;
+	flex: 1 1;
+	background-color: #dbdbdb;
+}
+.divider-text{
+	color: #8e8e8e;
+	font-size:13px;
+	font-weight: 600;
+	line-height: 15px;
+	margin : 0 18px;
+}
+
+.account-check-title {
+	font-size : 14px;
+	color:#262626;
+}
+.account-check-title > a{
+	text-decoration: none;
+	font-weight :bold;
+	color: #0095f6;
+}
+.download-app{
+	margin : 20px 0;
+}
+.download-app > p{
+	font-size : 14px;
+	color:#262626;
+	line-height : 15px;
+}
+.download-app > .appimg{
+	display : flex;
+	justify-content : center;
+	margin : 3px;
+}
+#appleimg, #googleimg{
+	margin : 5px 3px;
+ 	height : 40px;
+	width : 150px;
+}
+
+.insta-info{
+	padding : 0 20px;
+}
+.insta-info-wrapper{
+	max-width: 1012px;
+	margin : 0 auto;
+	padding : 38px 0;
+	width: 100%;	
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.insta-info-navbar > ul{
+	text-align : center;
+	font-size : 12px;
+	font-weight: 600;
+	list-style: none;
+	margin : 0 5px;
+	display: flex;
+	flex-grow: 1;
+}
+.navbar-item{
+	margin-right : 16px;
+	margin-bottom: 7px;
+}
+.navbar-item > a{
+	text-decoration: none;
+	color : #00376b
+}
+
+.copyright{
+	font-size: 12px;
+	font-weight : 600;
+	color : #8e8e8e;
+}
