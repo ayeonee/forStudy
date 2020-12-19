@@ -1,0 +1,8 @@
+﻿  lecture40.cpp
+C:\Users\ayeon\Desktop\cpp\cplus_study\200718\200718\lecture40.cpp(30,33): error C2664: 'void print_noSpace(char [])': 인수 1을(를) 'const char [15]'에서 'char []'(으)로 변환할 수 없습니다.
+C:\Users\ayeon\Desktop\cpp\cplus_study\200718\200718\lecture40.cpp(30,16): message : 문자열 리터럴로부터의 변환은 const 한정자가 손실됩니다(/Zc:strictStrings 참조).
+C:\Users\ayeon\Desktop\cpp\cplus_study\200718\200718\lecture40.cpp(20,6): message : 'print_noSpace' 선언을 참조하십시오.
+C:\Users\ayeon\Desktop\cpp\cplus_study\200718\200718\lecture40.cpp(31,37): error C2664: 'void print_noSpace(char [])': 인수 1을(를) 'const char [19]'에서 'char []'(으)로 변환할 수 없습니다.
+C:\Users\ayeon\Desktop\cpp\cplus_study\200718\200718\lecture40.cpp(31,16): message : 문자열 리터럴로부터의 변환은 const 한정자가 손실됩니다(/Zc:strictStrings 참조).
+C:\Users\ayeon\Desktop\cpp\cplus_study\200718\200718\lecture40.cpp(20,6): message : 'print_noSpace' 선언을 참조하십시오.
+C:\Users\ayeon\Desktop\cpp\cplus_study\200718\200718\lecture40.cpp(32,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
