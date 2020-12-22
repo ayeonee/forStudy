@@ -86,3 +86,25 @@ express 설치 후 생성된 파일 중에 실행에 가장 큰 영향 미치는
 		~~
 	}); 이고 http://localhost:3000/hello/world 로 요청받았다면 req.params.id에는 'world'라는 문자열이 들어감.
 	
+*템플릿 엔진 : 동적파일과 정적 파일의 장단점을 결합한 형태의 새로운 체계. ejs, pug
+	ejs : html태그에 부분적으로 입력 및 수정
+	pug : 코드를 간소화 시켜서 컴파일한 후 html 렌더링(원래 이름 jade)
+
+*pug 문법 : 닫기 태그 쓰지 않고 들여쓰기로 계층 구조 표현. (들여쓰기 단위가 반드시 통일되어야 함, 잘못된 계층일 경우 500 에러가 발생)
+	html
+		head
+		body
+	
+	태그 이름 뒤에 # 붙이고 ID를 적어줌으로써 해당 HTML 요소에 고유한 이름 부여 가능.
+	원래는 <div id="id"> 면 pug 에서는 div#id
+	원래는 <div class="class">면 pug에서는 div.class
+	pug에서 div 생략해도 div로 인식하여 동작. 괄호로 나머지 속성들 기술.
+		ex. #contents(style="border:1px solid black;")
+		ex. input(type="checkbox", checked) 여러 속성 동시 부여시 반점 이용.
+
+	태그 내부 텍스트 표현법 : 태그 관한 서술 띄어쓰기 후에 표현하고자 하는 텍스트 작성. 텍스트가 길다면 | 로 다음줄에 이어서 표현 가능.
+	동적 콘텐츠 표현 : JSON 형태로 주고 받음. express가 Pug 엔진에 {"title":"goorm", "message" : "Welcome to GoormEdu"} 라는 JSON 데이터를 보냈다고 하면 Pug에서 적절한 위치에 #{fieldname}으로 기술. ex. div#subject #{title}
+	JSON 데이터에 값이 HTML 태그 포함되어 있다면 html 태그가 적용되지 않고 그대로 출력됨. 		HTML 코드로 동작하려면 !{fieldName}으로 출력.
+	<script>, <style> 태그 한해서 세로선(|)을 사용하지 않고도 여러 줄로 구성된 코드 기술 지원.
+	//- 쓰면 Pug에선 주석으로 표현하고 실제 출력시에는 주석 생략됨.
+	
