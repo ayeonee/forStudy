@@ -125,3 +125,16 @@ io.on('connection', function(socket){
         console.log('접속이 종료되었습니다.');
     });
 });
+
+**socket io 에서 is not function 에러 뜰 때
+	const io = require('socket.io')(app);	로 수정.
+
+*project 생성 시
+	npm install express-generator -g
+	express [프로젝트 디렉터리명]
+	cd [프로젝트 디렉터리명] && npm install
+ 그 후 socket.io, pug 설치 (npm install socket.io  /  npm install pug)
+
+*서버 작동 시에
+	www로 분리되어 있다면 npm start
+	server.js 코드 하나에 서버 코드를 모두 작성하면 node server로 서버 구동.
