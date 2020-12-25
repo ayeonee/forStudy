@@ -138,3 +138,11 @@ io.on('connection', function(socket){
 *서버 작동 시에
 	www로 분리되어 있다면 npm start
 	server.js 코드 하나에 서버 코드를 모두 작성하면 node server로 서버 구동.
+
+**부트스트랩 실행시 Uncaught TypeError:Cannot read property 'fn' of undefined 에러 발생하면
+	스크립트 파일 불러오는 순서가 잘못 되었기 때문임. 부트스트랩 스크립트는 제이쿼리 스크립트가 먼저 로드되어 있어야만 실행. 
+
+**CORS 속성 : 서로 다른 도메인 출처(css, image, js 등)에 접근 가능 및 실행 권한.
+	anonymous : CORS 요청 시 자격 증명 플래그를 설정하지 않음.
+	use-credentials : 자격증명을 요청함. 
+	ex. <script src="https://google.co.kr/aa.js" crossorigin="anonymous"></script>

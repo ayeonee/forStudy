@@ -5,10 +5,9 @@ html
         link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO",crossorigin="anonymous")
         //-link와 script는 부트스트랩 연결
-
+        script(src='//code.jquery.com/jquery-1.11.1.js')
+        script(src='/socket.io/socket.io.js')
         script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js", integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous")
-            script(src='/socket.io/socket.io.js')
-            script(src='//code.jquery.com/jquery-1.11.1.js')
     body
         center
             div
@@ -18,11 +17,11 @@ html
             form#chat
                 input#name.form-control(type='text')
                 input#message.form-control(type='text')
-                button.btn.btn-primary(type='submit')전송
+                button.btn.btn-primary(type='submit') 전송
             #box.box
         script.
             var socket=io();
-            //전송버튼 누를 때 1
+            //전송버튼 누를 때
             $('#chat').on('submit', function(e){
             socket.emit('send message', $('#name').val(), $('#message').val());
             $('#message').val('');
@@ -30,13 +29,28 @@ html
             e.preventDefault();    
             });
 
-            //이름세팅2
+            //이름세팅
             socket.on('create name', function(name){
             $('#name').val(name);
             });
 
-            //메시지 받았을때3
+            //닉네임 변경
+            socket.on('change name', function(oldname,name){
+            $('#chatLog').append('<알림> '+oldname+'님이 '+name+'님으로 닉네임을 변경했습니다.\n');
+            });
+
+            //메시지 받았을때
             socket.on('receive message', function(msg){
             $('#chatLog').append(msg+'\n');
             $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight);
-            })
+            });
+
+            //채팅방 접속 끊겼을때 
+            socket.on('new_disconnect',function(name){
+            $('#chatLog').append('<알림> '+name+'님이 채팅창을 떠났습니다.\n');
+            });
+
+            //채팅방접속
+            socket.on('new_connect',function(name){
+            $('#chatLog').append('<알림> '+name+'님이 채팅창에 접속했습니다.\n');
+            });
