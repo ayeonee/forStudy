@@ -3,6 +3,7 @@ var bingo={
     is_my_trun:Boolean,
     socket: null,
 
+    //소켓에 이벤트별로 콜백 함수를 할당.
     init : function(socket){
         var self=this;
         var user_cnt=0;
@@ -27,7 +28,8 @@ var bingo={
             self.update_userlist(data,socket);
         });
 
-        socket.on("connect", function(){
+        socket.on("connect", function(){        //connect 발생하면 join으로 데이터 넘김
+            
             socket.emit("join", {username:$('#username').val()});
         });
         
@@ -125,6 +127,7 @@ var bingo={
     }
 };
 
+//html 로딩이 끝나면 bingo.init()으로 bingo 객체 초기화, 빙고게임 설정
 $(document).ready(function(){
     bingo.init();
 });
