@@ -135,6 +135,7 @@ io.on('connection', function(socket){
 	cd [프로젝트 디렉터리명] && npm install
  그 후 socket.io, pug 설치 (npm install socket.io  /  npm install pug)
  이미 socket.io글로벌로 설치되어 있다면 npm link socket.io로 위치 잡아줌.
+ 데이터 저장 위한 mongoose 설치 npm install mongoose
 *서버 작동 시에
 	www로 분리되어 있다면 npm start
 	server.js 코드 하나에 서버 코드를 모두 작성하면 node server로 서버 구동.
