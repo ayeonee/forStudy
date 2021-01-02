@@ -230,3 +230,14 @@ io.on('connection', function(socket){
 
 *Atlas : mongoDB 제공해주는 클라우드 서비스
 mongodb+srv://ayeon:<password>@mongo-test.avv2v.mongodb.net/<dbname>?retryWrites=true&w=majority
+
+**jQuery 선택지와 함수
+$("table").css("border","1px solid #000");
+--> 선택자에 의해 선택된 DOM 요소에 함수의 기능을 적용. table 요소를 모두 선택하여 테두리를 변경하는 기능. 선택자는 CSS선택자 문법에 따라 여러 가지 선택 가능. jQuery에서 지원하는 선택자를 이용하여 DOM 요소 선택 가능. (특정 css를 조작하거나 이벤트를 걸고 class를 추가하는 등의 수많은 함수 사용 가능)
+
+$.get() : jQuery.get(url [, data] [, success(data, textStatus, jqXHR)] [, dataType])
+--> HTTP GET 방식의 요청을 통해 데이터를 가져옴. success() 콜백 함수의 매개변수를 통해 데이터가 전달. 그 형식은 datatype(xml, json, script, html)에 따라 달라짐.
+
+$.each() : jQuery.each(collection, callback(indexInArray, valueOfElement))
+--> 기본 반복문. 배열이나 객체 집합 하나하나에 대한 기능을 콜백함수를 통해 구현 가능. 
+      collection : 반복할 객체나 배열을 말함. 콜백 함수 : 객체나 배열 요소 하나하나에 대해 수행.

@@ -11,11 +11,14 @@
             var modify=null;
             var del=null;
 
+            //페이지가 모두 로딩되고 나서 작업을 처리함
             $(document).ready(function(){
-                load=function(){
-                    $.get('/load', function(data){
-                        $("#memo").empty();
-
+                load=function()     //데이터를 서버에게 요청하여 데이터를 받아 처리
+                {
+                    $.get('/load', function(data){  //load라는 api 요청, 서버가 데이터 반환하면 콜백함수에 data라는 인자 전달.
+                        
+                        $("#memo").empty();//새로운 내용을 갱신하기 위해서 'memo'라는 ID 값을 가진 <div> 의 내용을 비우는 코드
+                        //서버로부터 응답받은 데이터인 JSON 형식의 data를 이용하여 반복문 실행.
                         $(data).each(function(i){
                             var id=this._id;
                             $("#memo").prepend("<div class='item'></div>"); //prepend : 첫번째에 콘텐츠 추가
@@ -49,6 +52,7 @@
                     });
                 };
 
+                //메모 수정, 작성, 삭제. $.post()함수로 서버를 요청. 
                 modify=function(contents, id){
                     var postdata={
                         'author' : $("#author").val(),

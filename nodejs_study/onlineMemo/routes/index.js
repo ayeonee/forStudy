@@ -73,7 +73,7 @@ router.post('/modify', function(req, res, next){
       throw err;
     }
     else{
-      memo. contents=contents;
+      memo.contents=contents;
 
       memo.save(function(err){
         if(err){
