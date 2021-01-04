@@ -1,0 +1,40 @@
+[바인딩과 this]
+바인딩 : 함수 혹은 메서드를 호출한 대상에 실제 함수를 연결해주는 것
+var myObject={
+	name: 'ayeon',
+	sayName: function(){
+		console.log(this.name);
+	}
+}
+
+var yourObject = {
+	name : 'ayeonee'
+}
+yourObject.sayName=myObject.sayName;
+
+myObject.sayName();	//ayeon
+yourObject.yourName();	//ayeonee
+
+--> myObject.sayName(); 에서의 sayName은 myObject에 바인딩되었다.
+--> yourObject.sayName(); 에서의 sayName은 yourObject에 바인딩되었다.
+
+상황에 따라 지칭하는 대상이 다른 this.
+-일반함수를 호출했을 때 this는 전역객체 가리킴. 
+-객체 속 메서드에서 호출했을 때 this는 그 메서드를 호출한 객체에 바인딩됨. 
+-생성자 함수에서의 this는 그 생성자함수로 생성된 객체에 바인딩됨.
+
+[JavaScript로 HTML 다루기]
+-getElementbyId
+document.getElementById(idName);	idName에는 id값의 이름. idName찾아 HTML element반환.
+
+-getElementsByTagName
+document.getElementsByTagName(tagName);	tagName에는 태그 이름.
+
+-createElement
+document.createElement(태그이름);	HTML태그 생성. 
+
+-appendChild
+Node.appendChild()		HTML DOM 내에 새로운 Child Node 추가. 하위 계층에 해당하는 html 코드 생성.
+
+-setAttribute
+Element.setAttribute(속성이름, 속성값)		특정 HTML 요소에 대해 속성값 부여.
