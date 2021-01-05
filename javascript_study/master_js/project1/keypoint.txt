@@ -38,3 +38,15 @@ Node.appendChild()		HTML DOM 내에 새로운 Child Node 추가. 하위 계층�
 
 -setAttribute
 Element.setAttribute(속성이름, 속성값)		특정 HTML 요소에 대해 속성값 부여.
+
+[js 문법]
+for in : 객체의 속성들을 반복하여 작업을 수행. 객체의 key값에 접근 가능
+indexOf= 문자열 속의 문자열 검색, 찾고자 하는 값 없으면 -1 반환
+
+var div=document.getElementById('container');
+div.innerHTML="수강관리 APP"; //html안에 해당 말이 넣어지는 효과
+div.appendChild(table); //div 태그 하위에 다른 태그 만들고 싶을 때
+
+var table=document.createElement('table');
+table.setAttribute('id', 'classTable');	//테이블 안에 속성 추가
+var tr=table.insertRow();		//테이블 안에 행을 추가해라. ()안에 -1 넣으면 테이블 태그의 마지막 행에 넣어라.
