@@ -50,3 +50,8 @@ div.appendChild(table); //div 태그 하위에 다른 태그 만들고 싶을 �
 var table=document.createElement('table');
 table.setAttribute('id', 'classTable');	//테이블 안에 속성 추가
 var tr=table.insertRow();		//테이블 안에 행을 추가해라. ()안에 -1 넣으면 테이블 태그의 마지막 행에 넣어라.
+
+select 태그에서 <option value=""></option> 해서 제일 처음 뜨는 문구 공백 가능
+
+splice((배열 변경할 인덱스), (제거할 요소의 수)) : 배열의 기존 요소를 삭제 또는 교체
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
