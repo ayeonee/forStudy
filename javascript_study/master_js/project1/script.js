@@ -123,6 +123,88 @@ var crudApp = new function(){
         this.myClass.splice((targetIdx-1),1);
         this.createTable();     //table 새로고침
     }
+
+    //추가(create) 메서드 생성
+    this.CreateNew=(oButton)=>{
+        var writtenIdx=oButton.parentNode.parentNode.rowIndex;
+        var trData=document.getElementById('classTable').rows[writtenIdx];
+
+        var obj={};     //입력한 값 담아줌
+
+        //tr 데이터에서 td 속의 key:value만 뽑아서 obj안에 저장
+        for(var i=1; i<this.col.length; i++){
+            var td=trData.getElementsByTagName("td")[i];
+            if(td.childNodes[0].getAttribute('type')==='text' || td.childNodes[0].tagName==='SELECT'){
+                var txtVal=td.childNodes[0].value;
+                //txtVal=입력한 값. 하나라도 비어있다면 경고
+                if(txtVal!=''){
+                    obj[this.col[i]]=txtVal;
+                    console.log(); 
+                }
+                else{
+                    obj='';
+                    alert('모든 항목을 입력해주세용');
+                    break;
+                }
+            }
+        }
+        
+        if(obj[this.col[1]] && obj[this.col[2]] && obj[this.col[3]]){
+            obj[this.col[0]]=this.myClass.length +1;    //자동으로 새 ID 값 부여
+            this.myClass.push(obj);
+            this.createTable();
+        }
+    }
+
+    //수정(Update)메서드 생성
+    this.Update=(oButton)=>{
+        var writtenIdx=oButton.parentNode.parentNode.rowIndex;
+        var trData=document.getElementById('classTable').rows[writtenIdx];
+
+        //기존에 입력한 데이터들 갖고오기
+        for(var i=1; i<this.col.length; i++){
+            //기존에 입력한 데이터들을 담은 새로운 input/select를 띄워주기
+            if(i===2){
+                var td=trData.getElementsByTagName("td")[i];
+                var select=document.createElement("select");
+                select.innerHTML=`<option value="${td.innerText}">${td.innerText}</option>`;
+                for(var k=0; k<this.Category.length; k++){
+                    select.innerHTML=select.innerHTML+`<option value="${this.Category[k]}">${this.Category[k]}</option>`;
+                }
+                td.innerText='';
+                td.appendChild(select);
+            }
+
+            else{
+                var td=trData.getElementsByTagName("td")[i];
+                var input=document.createElement("input");
+                input.setAttribute("type","text");
+                input.setAttribute("value", td.innerText);
+                td.innerText='';
+                td.appendChild(input);  
+            }
+        }
+        //버튼 save로 바꾸기
+        var btnSave=document.getElementById('Save'+ (writtenIdx -1));
+        btnSave.setAttribute('style', 'display : block; background-color:#2DBF64;');
+        //업데이트 버튼 숨기기
+        oButton.setAttribute('style', 'display : none; ');
+    }
+
+    //저장(save)메서드 생성
+    this.Save=(oButton)=>{
+        var writtenIdx=oButton.parentNode.parentNode.rowIndex;
+        var trData=document.getElementById('classTable').rows[writtenIdx];
+
+        //새로운 값으로 myClass 갱신
+        for(var i=1; i<this.col.length; i++){
+            var td=trData.getElementsByTagName("td")[i];
+            if(td.childNodes[0].getAttribute('type')==='text' || td.childNodes[0].tagName==='SELECT'){
+                this.myClass[writtenIdx-1][this.col[i]]=td.childNodes[0].value;
+            }
+        }
+        this.createTable();
+    }
 }
 
 crudApp.createTable();
