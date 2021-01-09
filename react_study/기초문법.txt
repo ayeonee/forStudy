@@ -1,0 +1,35 @@
+[기초문법]
+*HTML 코드 -> 함수 내 return ()안에. 
+ class명 지정시 className 속성 사용.
+ 최상위 element는 한개여야 함. -> 쓸데없는 div element 여러 개 생성 방지용 빈태그 지원.
+	<>
+		<div className="container1">abc</div>
+	</>
+
+*class component : 원래 중요했으나 hooks 기능 나오면서 잘 쓰지 않게 됨.
+import React, { Component } from 'react';		//react 라이브러리에서 함수 또는 클래스를 import. export된 다른 파일의 함수 또는 클래스를 불러와 사용할 수 있도록 함.
+class Component1 extends Component{			//Component1이라는 컴포넌트를 선언
+	render(){					//react.component의 하위 class에서 반드시 정의해야 하는 메서드. 리액트에서 사용하는 컴포넌트를 생성.
+		return (<div> Hello Word! </div>);	//render함수를 통해 컴포넌트를 만들기 위한 HTML 반환.
+	}	
+}
+
+export default Component1;				//다른 자바스크립트 파일에서 Component1이라는 class를 사용할 수 있게 export함.
+
+*Functional Component : 부모 컴포넌트로 받은 값을 출력만 해주는 컴포넌트였지만 리액트 업데이트 이후 거의 모든 컴포넌트 선언에 사용됨. 
+import React, { Component } from 'react';
+const Component2 = () => {		//*화살표 함수 : [변수 선언부][함수명]=[인자값]=>[함수내부코드]
+	return (
+		<div>Hello World! </div>
+	);
+}
+export default Component2;
+
+*Split Component : 컴포넌트를 나눌 때는 주로 기능 별로
+
+*export {default} from "./InputBox";
+폴더까지만 경로를 설정해놓으면 index.js 파일을 제일 먼저 찾음. 위의 코드는 InputBox컴포넌트를 export하는 코드. 그렇기에 파일 이름 명시하지 않아도 컴포넌트 올바르게 Import 가능. 
+index.js파일 없다면, InputBox.js 명시해주어야함. (js 파일은 확장자 생략이 가능함)
+
+*import InputBox from "./components/InputBox";
+하고 사용할 때에는 <InputBox />
