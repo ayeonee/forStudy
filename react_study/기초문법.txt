@@ -1,3 +1,8 @@
+[프로젝트 생성]
+npm install -g create-react-app
+create-react-app 프로젝트
+cd 프로젝트명
+
 [기초문법]
 *HTML 코드 -> 함수 내 return ()안에. 
  class명 지정시 className 속성 사용.
@@ -33,3 +38,26 @@ index.js파일 없다면, InputBox.js 명시해주어야함. (js 파일은 확�
 
 *import InputBox from "./components/InputBox";
 하고 사용할 때에는 <InputBox />
+
+*컴포넌트 스타일링1 : CSS Module : css 클래스를 불러올 때 [파일 이름]_[클래스 이름]_[해쉬값] 으로 고유한 클래스명을 부여하여 동일한 클래스명이 생기지 않게 만드는 기술. 적용하기 위해선 [파일이름].module.css로 저장해야 함. 모듈화를 했다면 js 파일에서 이에 맞게 변경해야 함. 
+
+모듈화하기 : 파일명에 module 붙여주고 불러올 때 import styles from "/style.module.css"
+	<div className={styles.phone_item}> 이런 식으로 사용.
+
+*컴포넌트 스타일링2 : Sass  : 코드 재사용성이 뛰어나고 복잡한 작업을 쉽게 할 수 있음. (.scss 확장자가 많이 사용) 사용하려면 npm add node-sass 로 라이브러리 설치. css와 마찬가지로 모듈화 가능. (https://sass-lang.com/documentation 참고)
+
+*컴포넌트 스타일링3 : styled-components : css를 js 코드 내에 작성하는 형태. 이와 같은 라이브러리를 CSS-in-JS 라이브러리라 부르는데, styled-components는 CSS-in-JS 라이브러리 중에서 가장 많이 사용됨. npm add styled-components 로 설치.
+	styled-components는 styled.[태그명]을 통해 스타일링된 컴포넌트 생성. 
+
+Template Literal : 기존( return "Hello "+name+"!"; ) -> ( return `Hello ${name}!`; )
+
+*State : 컴포넌트 내에서 선언하는 데이터. 데이터를 관리하는데에만 사용되는 것이 아니라 UI 관련하여 작업시에도 사용 가능.
+
+-사용법 : class components에서만 사용 가능. functional components에서는 사용 불가. 
+	state={number :0} 으로 선언.
+	사용시에는 {this.state.number}	 (return 구문안에서 변수를 사용하기 위해선 중괄호로 둘러 싸야함. state는 json 형식의 객체임.)
+-setState() : 전달되는 값을 업데이트해주는 함수. state 안의 객체가 통째로 바뀌면 안됨.
+-... : Spread 문법, 객체 또는 배열의 내용을 풀어주는 기능.
+	ex. var a={name:"a", phone:"010-0000-0000", age:20});
+	    var b={ ...a, name:"b"}; 	--> name:"b", phone:"010-0000-0000", age:20	
+-Destructing Assignment 문법 : 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 기능. (https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment 참고)
