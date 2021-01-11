@@ -61,3 +61,9 @@ Template Literal : 기존( return "Hello "+name+"!"; ) -> ( return `Hello ${name
 	ex. var a={name:"a", phone:"010-0000-0000", age:20});
 	    var b={ ...a, name:"b"}; 	--> name:"b", phone:"010-0000-0000", age:20	
 -Destructing Assignment 문법 : 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 기능. (https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment 참고)
+
+*컴포넌트 폴더 내에서 index.js 파일 만들어 export하는 이유 :
+서버는 파일 이름이 index인 것을 제일먼저 탐색함. 이 index.js 파일 안에서는 같은 폴더 내의 컴포넌트를 다시 export 햇으므로 import문을 디렉토리까지만 적어도(import Number from "./components/Number";) 어떤 컴포넌트를 가져와야 할지 알 수 있음.
+
+*Props : 부모 컴포넌트에게서 받는 데이터. 인자값으로 불러옴. props.[속성명] 으로 사용함.
+	ex. const Number = props =>{ return <Count>{props.number}</Count>};

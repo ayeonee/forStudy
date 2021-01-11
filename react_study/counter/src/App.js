@@ -1,4 +1,23 @@
 import React, { Component } from 'react';
+import CountButton from "./components/CountButton";
+import Number from "./components/Number";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  margin : 0 auto;
+  display : flex;
+  flex-direction : column;
+  align-items : center;
+  width : 100px;
+  margin-top : 100px;
+`;
+
+const ButtonWrapper =styled.div`
+  width : 100%;
+  display : flex;
+  justify-content : space-between;
+  margin-bottom : 50px;
+`;
 
 class App extends Component{
   state = { number : 0} //state 선언
@@ -20,15 +39,16 @@ class App extends Component{
   }
 
   render(){
+    const {number} = this.state;
     return (
-      <div>
-        <div>
-          <button onClick={this.countUP}>+</button>
-          <button onClick={this.countDown}>-</button>
-        </div>
-        {this.state.number}
-      </div>
-    )
+      <Wrapper>
+        <ButtonWrapper>
+          <CountButton onClick={this.countUP} text="+"/>
+          <CountButton onClick={this.countDown} text="-"/>
+        </ButtonWrapper>
+        <Number number={number}/>
+      </Wrapper>
+    );
   }
 }
 
