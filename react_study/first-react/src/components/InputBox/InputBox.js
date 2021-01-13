@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./InputBox.module.css";
 
-const InputBox = ({name, phone, onChange}) => {
+const InputBox = ({name, phone, onChange, onSubmit}) => {
   return (
     <div className={styles.input_boxes}>
       <div className={styles.input_box}>
@@ -26,7 +26,9 @@ const InputBox = ({name, phone, onChange}) => {
           value={phone}
         />
       </div>
-      <button className={styles.input_box_button}>저장</button>
+      <button className={styles.input_box_button} onClick={onSubmit}>
+        저장
+      </button>
     </div>
   );
 };
