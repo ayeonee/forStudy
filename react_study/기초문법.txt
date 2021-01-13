@@ -67,3 +67,10 @@ Template Literal : 기존( return "Hello "+name+"!"; ) -> ( return `Hello ${name
 
 *Props : 부모 컴포넌트에게서 받는 데이터. 인자값으로 불러옴. props.[속성명] 으로 사용함.
 	ex. const Number = props =>{ return <Count>{props.number}</Count>};
+
+*map() : 배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환.
+
+*Object.values() : json형식에서 value값으로만 이루어져 있는 배열을 반환.
+*Object.keys() : json 형식에서 key 값으로만 이루어져 있는 배열을 반환.
+
+*자바스크립트 Event 객체 : DOM과 관련된 이벤트가 발생했을 때 관련 정보를 저장하는 객체. e.target은 해당 이벤트가 발생한 element가리킴. 
