@@ -51,7 +51,7 @@ index.js파일 없다면, InputBox.js 명시해주어야함. (js 파일은 확�
 
 Template Literal : 기존( return "Hello "+name+"!"; ) -> ( return `Hello ${name}!`; )
 
-*State : 컴포넌트 내에서 선언하는 데이터. 데이터를 관리하는데에만 사용되는 것이 아니라 UI 관련하여 작업시에도 사용 가능.
+[State] : 컴포넌트 내에서 선언하는 데이터. 데이터를 관리하는데에만 사용되는 것이 아니라 UI 관련하여 작업시에도 사용 가능.
 
 -사용법 : class components에서만 사용 가능. functional components에서는 사용 불가. 
 	state={number :0} 으로 선언.
@@ -70,7 +70,7 @@ Template Literal : 기존( return "Hello "+name+"!"; ) -> ( return `Hello ${name
 *컴포넌트 폴더 내에서 index.js 파일 만들어 export하는 이유 :
 서버는 파일 이름이 index인 것을 제일먼저 탐색함. 이 index.js 파일 안에서는 같은 폴더 내의 컴포넌트를 다시 export 했으므로 import문을 디렉토리까지만 적어도(import Number from "./components/Number";) 어떤 컴포넌트를 가져와야 할지 알 수 있음.
 
-*Props : 부모 컴포넌트에게서 받는 데이터. 인자값으로 불러옴. props.[속성명] 으로 사용함.
+[Props] : 부모 컴포넌트에게서 받는 데이터. 인자값으로 불러옴. props.[속성명] 으로 사용함.
 	ex. const Number = props =>{ return <Count>{props.number}</Count>};
 
 *map() : 배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환.
@@ -84,7 +84,7 @@ Template Literal : 기존( return "Hello "+name+"!"; ) -> ( return `Hello ${name
 *onClick={()=>onClick(id)} 라고 하고 onClick={onClick(id)} 라고 하지 않는 이유 : React에선 이벤트 핸들러로 함수 그 자체를 전달해야하기 때문. onClick 같은 이벤트 속성에 핸들러를 전달할 때는 "onClick={onClick}" 같이 소괄호 제외하고 보냄. 다만, 위의 예시에선 onClick 함수가 id 파라미터를 받기 때문에 Arrow fuction 으로 새 함수 만듦.
 
 
-*LifeCycle API : react에서 모든 컴포넌트는 여러 종류의 LifeCycle Method를 가짐. 각 컴포넌트에서는 이 메소드를 오버라이딩하여 특정 시점에서 코드가 실행될 수 있게 설정할 수 있음. 
+[LifeCycle API] : react에서 모든 컴포넌트는 여러 종류의 LifeCycle Method를 가짐. 각 컴포넌트에서는 이 메소드를 오버라이딩하여 특정 시점에서 코드가 실행될 수 있게 설정할 수 있음. 
 
 -Component Mount LifeCycle API : 컴포넌트 마운트와 관련된 API. 해당 LifeCycle API들은 아래와 같은 순서로 호출됨.
 	1. constructer()	: React 컴포넌트의 생성자. 생성자는 해당 컴포넌트가 마운트되기 전에 호출됨. this.state에 객체를 할당하여 state 초기화하거나 인스턴스에 이벤트 처리 메서드 바인딩할 때 사용.
@@ -105,8 +105,7 @@ Template Literal : 기존( return "Hello "+name+"!"; ) -> ( return `Hello ${name
 (https://edu.goorm.io/learn/lecture/16422/%EA%B0%80%EC%9E%A5-%ED%95%AB%ED%95%9C-fe-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-react-%EA%B0%80%EC%A7%80%EA%B3%A0-%EB%86%80%EC%95%84%EB%B3%B4%EA%B8%B0/lesson/814039/component-update-lifecycle-api 참고)
 
 
-
-*Hooks :상태 관리를 할 수 있음. class를 사용하지 않아도 state와 다른 react 기능들을 사용할 수 있음. 
+[Hooks] :상태 관리를 할 수 있음. class를 사용하지 않아도 state와 다른 react 기능들을 사용할 수 있음. 
 -useState() : 상태값과 상태값을 변화시키는 함수를 배열 형식으로 반환함. useState의 인자는 상태 값의 초깃값에 해당함. 
 	const [number, setNumber] = useState(0);	//처음 number는 0. number은 상태값, setNumber는 상태값을 변화시키는 함수.
 -useEffect() : 3개의 LifeCycle API(componentDidMount, componentDidUpdate, componentWillUnmount)를 구현할 수 있음. 
@@ -117,7 +116,7 @@ Template Literal : 기존( return "Hello "+name+"!"; ) -> ( return `Hello ${name
 *Custom Hooks : Hooks를 더 생산적으로 활용할 수 있음. 보통 파일 이름에 use를 붙이는 게 관례.
 
 
-*Redux : 글로벌 상태 관리 라이브러리. 모든 컴포넌트에서 쉽게 상태에 접근 및 상태를 변화시킬 수 있음. 
+[Redux] : 글로벌 상태 관리 라이브러리. 모든 컴포넌트에서 쉽게 상태에 접근 및 상태를 변화시킬 수 있음. 
 1. State : redux 애플리케이션의 전체 상태를 나타냄. 보통 store에 의해 관리됨.
 2. Store : 애플리케이션 상태 트리를 가지고 있는 객체. redux 앱에서는 단 하나의 스토어만 가지고 있어야함.
 3. Action : 상태를 변화시키려는 것을 표현하는 객체. 즉, 상태를 변화시키기 위해서는 액션을 생성해야함. 액션은 스토어에 데이터를 넣는 유일한 방법. type 필드를 꼭 가지고 있어야 하고 그 뒤에 사용자가 넣고 싶은 데이터를 자유롭게 넣을 수 있음. 
@@ -132,3 +131,22 @@ Template Literal : 기존( return "Hello "+name+"!"; ) -> ( return `Hello ${name
 1. Single source of truth : 애플리케이션의 모든 상태는 하나의 스토어 안에 하나의 객체 트리 구조로 저장됨. 
 2. State is read-only : 상태를 변화시키는 유일한 방법은 상태 변화를 나타내는 액션 객체를 전달하는 방법뿐. 모든 상태 변화는 중앙에서 관리되고, 엄격한 순서에 의해 하나 하나 실행되기 때문에 기록을 남기고 저장할 수 있음.
 3. Changes are made with pure functions : 순수한 리듀서를 작성해야함. 액션을 가지고 상태를 변경해주고, 이전의 상태는 건들지 않고 새로운 상태를 만들어 반환함. 그리고 똑같은 파라미터를 받아 실행된 리듀서는 언제나 똑같은 값만 반환해야 함. 리듀서 함수 내부에서 네트워크및 데이터베이스 접근, math와 date 같은 순수하지 않은 api를 호출하는 코드가 있으면 안됨. 이런 작업은 리듀서 바깥에서 처리하고 이를 위해 보통 미들웨어를 사용함.
+
+*설치
+redux, react-redux :리액트에서 redux를 사용할 수 있게 해주는 라이브러리
+redux-actions : 액션 생성자와 리듀서 함수를 더 쉽게 만들어주는 라이브러리
+immer : 스토어의 불변성 관리를 위해 사용하는 라이브러리
+
+npm add redux reqct-redux redux-actions immer
+
+*Ducks 패턴 : 액션 부분과 리듀서 부분을 분리하지 않고 하나의 파일에 모두 작성하는 패턴.
+지켜야 하는 룰 4가지
+1. MUST export default a function called reducer() : 리듀서 함수는 반드시 default export 해야함.
+2. MUST export its action creators as functions : 액션 생성자는 반드시 함수로 export 해야함.
+3. MUST have action types in the form npm-module-or-app/reducer/ANTION_TYPE : 액션 타입 형식은 반드시 이 형태를 따라야 함.
+4. MAY export its action types as UPPER_SNAKE_CASE, if an exteranl reducer needs to listen for them, or if it is a published reusable library : 액션 타입들을 UPPER_SNAKE_CASE로 export 할 수도 있음.
+
+*Redux 디버깅 또는 테스팅을 위한 확장 프로그램 설치
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+
+	
