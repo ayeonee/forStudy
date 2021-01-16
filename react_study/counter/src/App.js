@@ -1,51 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CountButton from "./components/CountButton";
 import Number from "./components/Number";
 import styled from "styled-components";
+import { connect } from "react-redux";
+//import { increase, decrease } from "./store/reducer";
+import * as counter from "./store/reducer";
+import { bindActionCreators } from "redux";
 
-const Wrapper = styled.div`
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100px;
-  margin-top: 100px;
+const Wrapper =styled.div`
+    margin : 0 auto;
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    width : 100px;
+    margin-top:100px;
 `;
 
 const ButtonWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
+    width : 100%;
+    display : flex;
+    justify-content : space-between;
+    margin-bottom : 50px;
 `;
 
-const App = () => {
-  const [ number, setNumber ] = useState(0);
+const App=({number, counter})=>{
+    return(
+        <Wrapper>
+            <ButtonWrapper>
+                <CountButton onClick={()=>counter.increase(number+1)} text="+" />
+                <CountButton onClick={()=>counter.decrease(number-1)} text="-" />
+            </ButtonWrapper>
+            <Number number={number} />
+        </Wrapper>
+    );
+};
 
-  useEffect(()=>{
-      console.log("useEffect -> componentDidMount");
-      return () =>{
-          console.log("useEffect -> componentWillUnmount");
-      }
-  }, []);
+const mapStateToProps = state => ({
+    number : state.number
+});
 
-  useEffect(()=>{
-      console.log(`componentDidUpdate (number) -> ${number}`);
-  }, [number]);
+// const mapDispatchToProps = dispatch=>({
+//     increase : number => dispatch(increase(number)),
+//     decrease : number => dispatch(decrease(number))
+// });
 
-  useEffect(()=>{
-      console.log("useEffect -> componentDidUpdate");
-  });
+//bindActionCreators 함수로 더 간단하게
+const mapDispatchToProps = dispatch => ({
+    counter : bindActionCreators(counter, dispatch)
+});
 
-  return (
-    <Wrapper>
-      <ButtonWrapper>
-        <CountButton onClick={() => setNumber(number + 1)} text="+" />
-        <CountButton onClick={() => setNumber(number - 1)} text="-" />
-      </ButtonWrapper>
-      <Number number={number} />
-    </Wrapper>
-  );
-}
-
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

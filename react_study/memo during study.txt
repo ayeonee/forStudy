@@ -123,7 +123,7 @@ Template Literal : 기존( return "Hello "+name+"!"; ) -> ( return `Hello ${name
 	{ type : "counter/INCREASE", // 필수	value : 1	}
 4. Action Creators : 액션 생성자, 액션을 만드는 함수. 단순히 액션을 만들기만 하고 스토어에 실제 요청을 보내진 않음. 
 	const increase = value => ({ type : "counter/INCREASE", 	value });
-5. Dispatch (디스패치 함수) : 액션을 인자값으로 받는 함수. 인자값으로 받은 액션을 스토어에 보내 상태 관리를 요청. 스토어에서 요청을 바으면 해당 액션을 처리하는 로직을 실행 시킴. 
+5. Dispatch (디스패치 함수) : 액션을 인자값으로 받는 함수. 인자값으로 받은 액션을 스토어에 보내 상태 관리를 요청. 스토어에서 요청을 받으면 해당 액션을 처리하는 로직을 실행 시킴. 
 	store.dispatch(increase(10))
 6. Reducer : 리듀서, Redux에서 가장 중요한 개념. 실제 상태 변화가 발생하는 함수이고 dispatch를 통한 요청을 받으면 실행되는 함수. 액션 객체의 type 값에 따라 특정 함수 실행시키고 새로운 상태 만들어 반환함.
 
@@ -149,4 +149,18 @@ npm add redux reqct-redux redux-actions immer
 *Redux 디버깅 또는 테스팅을 위한 확장 프로그램 설치
 https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
 
-	
+*connect() : react-redux 라이브러리에 있는 함수로, 상태 값을 받아오거나 변경하기 위해 컴포넌트에 스토어를 연결하여 복잡한 store 구독 과정을 알아서 처리해줌. 
+	export default connect(mapStateToProps, mapDispatchToProps)(App);
+1. mapStateToProps : 액션 생성자를 Props로 매핑하는 함수. state를 인자값으로 받아와 props로 넘겨줄 값을 json 값으로 반환.
+	const mapStateToProps = state =>({
+		number : state.number
+	});
+2. mapDispatchToProps : 액션 생성자를 Props로 매핑하는 함수.  dispatch 함수를 인자값으로 받아와 props로 넘겨줄 값을 json 형태로 반환.
+	const mapDispatchToProps = dispatch => ({
+		increase : number => dispatch(increase(number)),
+		decrease : number => dispatch(decrease(number))
+	});
+	//더 간단하게
+	const mapDispatchToProps = dispatch => ({
+		counterActions : bindActionCreators(counterActions, dispatch)
+	});	//props로 counterAction 받아 counterActions.increase와 같은 형식으로 함수 사용 가능. bindActionCreators 는 redux 라이브러리에서 제공.

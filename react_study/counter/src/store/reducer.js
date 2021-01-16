@@ -8,7 +8,7 @@ export const increase = number => ({
     payload : number
 });
 
-export const decrese = number => ({
+export const decrease = number => ({
     type : DECREASE,
     payload : number
 });
