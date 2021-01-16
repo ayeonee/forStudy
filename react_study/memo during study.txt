@@ -164,3 +164,10 @@ https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfk
 	const mapDispatchToProps = dispatch => ({
 		counterActions : bindActionCreators(counterActions, dispatch)
 	});	//props로 counterAction 받아 counterActions.increase와 같은 형식으로 함수 사용 가능. bindActionCreators 는 redux 라이브러리에서 제공.
+
+*redux-actions 라이브러리에 존재하는 함수
+1. createAction 함수 : 간편하게 액션 생성자를 만들어주는 함수. 액션타입과 payloadCreator (어떤 데이터를 받는다는 것을 명시하기 위해 넣어줌, 생략 가능) 을 인자값으로 넘김.
+
+2. handleActions : 리듀서 부분을 더 간편하게 해줌. 리듀서와 initialState 값을 넘김. 
+
+*immer 라이브러리의 동작 방식 : 현재 상태를 임시적인 Draft에 적용하고, 사용자는 이 Draft를 수정함. 수정 작업이 모두 완료되면 Draft를 통해 새로운 상태를 만들어 반환.
