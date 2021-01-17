@@ -171,3 +171,12 @@ https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfk
 2. handleActions : 리듀서 부분을 더 간편하게 해줌. 리듀서와 initialState 값을 넘김. 
 
 *immer 라이브러리의 동작 방식 : 현재 상태를 임시적인 Draft에 적용하고, 사용자는 이 Draft를 수정함. 수정 작업이 모두 완료되면 Draft를 통해 새로운 상태를 만들어 반환.
+-produce() 함수 : 첫번째 파라미터에는 수정하고 싶은 상태, 두번째 파라미터에는 어떻게 업데이트하고 싶을지 정의하는 함수를 넣어줌. 이 함수에는 불변성 신경안써도 됨.
+-action.payload : 액션을 만들면 파라미터로 전달한 객체를 payload로 설정함.
+
+*Redux는 하나의 스토어만 만들 수 있지만 리듀서 함수의 개수는 정해져있지 않음. 특정 함수를 통해 리듀서 함수를 하나로 통합하여 내보낼 수 있기 때문. 
+-combineReducers() : 여러 개의 리듀서 함수를 하나로 합쳐주는 역할.
+
+*setInputValue() : 객체를 데이터로 받는 액션 함수.
+
+*appendData() : 인자값으로 들어온 값을 데이터로 추가하는 함수.
