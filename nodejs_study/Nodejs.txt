@@ -241,3 +241,84 @@ $.get() : jQuery.get(url [, data] [, success(data, textStatus, jqXHR)] [, dataTy
 $.each() : jQuery.each(collection, callback(indexInArray, valueOfElement))
 --> 기본 반복문. 배열이나 객체 집합 하나하나에 대한 기능을 콜백함수를 통해 구현 가능. 
       collection : 반복할 객체나 배열을 말함. 콜백 함수 : 객체나 배열 요소 하나하나에 대해 수행.
+
+
+*Redis : Remote Dictionary Server, 키-값 구조의 비정형 데이터를 저장하고 관리하기 위한 오픈소스 기반 비관계형 데이터베이스 관리 시스템. 필요한 정보를 빠르게 저장하고 가져올 수 있는 실시간 서비스에 적합한 저장소.  (휘발성이나 임시성 데이터를 저장하는데 많이 사용)
+ -다양한 데이터 타입
+	string : 일반적인 문자열, text, int, jpeg 같은 binary 파일도 저장 가능
+	set : string의 집합, 여러 개의 값을 하나의 value안에 넣을 수 있음. 한 key에 중복된 데이터 존재x, set에 포함된 요소의 수와 관계없이 일정한 시간으로 체크할 수 있는 것이 장점.
+	sorted set : set에 score라는 필드가 추가된 데이터형, score는 일종의 가중치. score 기준으로 오름차순으로 내부 정렬됨. 
+	lists : string의 집합, set과 유사하지만 일종의 양방향 linked list. push,pop으로 데이터 추가 및 삭제 가능
+	hashes : value에 field와 string value 쌍으로 이루어진 테이블을 저장. 객체를 나타내는데 사용 가능,
+ -redis 모듈은 node.js용 redis 클라이언트 라이브러리로, redis 커맨드 모두 지원. (redis 데이터베이스 프로그램은 따로 설치하고 실행해야 하므로 redis 모듈로 간단히 사용 가능)
+	npm install redis
+	npm install hiredis redis : 공식적인 hiredis C 라이브러리를 바인딩하여 Non-Blocking의 빠른 모듈
+	sudo apt-get install redis-server : redis 서버 설치. 
+
+*Redis 사용법
+-Redis 서버와 연결 : 클라이언트 객체를 생성해 Redis 서버와 연결, redis 실행 시 필수 코드.
+	var redis=require('redis');
+	var client=redis.createClient();
+	client.on('error', function(err){
+		console.log('error' +err);
+	});
+-데이터 조작하기(키/값)
+ set : 첫번째인자(키), 두번째인자(값), 출력을 통해 redis에 데이터 추가(key와 value 한 쌍 저장)
+ get : 첫번째인자(키), 두번째인자(함수의 첫번째인자(err), 두번째인자(값))를 통해 출력
+	client.set('String Key', 'String Value', redis.print); //redis print는 출력위한 것. 없어도 ok
+	client.get('String Key', function(err, value){
+		if(err) throw err;
+		console.log(value);
+	});
+-해시테이블(해시맵) 데이터 조작하기
+ hmset : 해시테이블에 key로 식별되는 value 값들을 항목으로 추가 가능. 첫번째 인자(해시테이블명), 두번째인자(항목들), key 한쌍에 여러 값 넣기 가능.
+ hset : hmset와 같지만 hmset은 여러 개 입력, hest는 하나만 입력. 
+ hget : 해당 해시테이블에서 인자로 받는 항목의 값을 가져옴. 첫번째 인자(해시테이블명), 두번째인자(항목), 세번째 인자 함수(첫번째 인자(에러), 두번째 인자(항목값))
+ hkeys : 해당 해시테이블의 저장된 항목의 키값을 가져옴. 첫번째 인자(해시테이블명), 두번째인자(함수(첫번째인자(에러), 두번째인자(항목의 키들))
+	client.hmset('codigm', {
+		'goormIDE' : 'cloud service',
+		'goormEDU' : 'edu service',
+	}, redis.print);
+
+	client.hset('Hash Key', 'HashTest 1', '1', redis.print);
+	client.hset(['Hasth Key', 'HashTest 2', '2'], redis.print);
+
+	client.hget('codigm', 'goormIDE', function(err, value){
+		if(err) throw err;
+		console.log('goormIde is : ' +value);
+	});
+	client.hkeys('codigm', function(err, keys){
+		if(err) throw err;
+		keys.forEach(funtion(key, i){
+			console.log('codigm'+i+' : '+key);
+		});
+	});
+
+-리스트에 존재하는 데이터 조작하기
+ 리스트는 매우 많은 데이터를 저장할 수 있지만 길이가 길어지면 검색 속도 또한 느려지게 됨.
+ lpush : 리스트에 값 추가(첫번째인자(리스트명), 두번째인자(값), 세번째인자(출력))
+ lrange : 리스트에 값 가져오기. (첫번째 인자(리스트명), 두번째 인자(시작지점), 세번째 인자(마지막 지점), 네번째 인자(함수(첫번째인자(에러), 두번째 인자(값))
+ client.lpush('tasks', 'Node.js', redis.print);
+ client.lpush('tasks', 'Redis', redis.print);
+ client.lrange('tasks', 0, -1, function(err, items){
+	if(err) throw err;
+	items.forEach(function(item, i){
+		console.log('list '+i+' : '+item);
+	});
+ });
+
+-set에 데이터 조작하기
+ set은 순서가 없는 문자열의 모음, 중복값 없음.
+ sadd : set에 값을 추가
+ smembers : 저장된 값을 반환
+ client.sadd('test', 'goorm', redis.print);	//reply : 1
+ client.sadd('test', 'codigm', redis.print);	//reply : 1
+ client.sadd('test', 'goorm', redis.print);	//reply : 0 (두번째 저장이라 무시가 됨.)
+ client.sadd('test', 'codigm2', redis.print);
+ client.smembers('test', function(err, data){
+	console.log(data);
+ };
+
+*Publisher/Subscriber : 메시지를 특정 수신자에게 직접 발송하지 못하는 곳에서 쓰이는 모델. 메시지를 발송하고 채널에서 구독하는 명령을 내림. ex 뉴스,날씨대시보드, 푸쉬알림 등 
+
+*redis 모듈은 하나의 클라이언트가 메시지를 발생시키면 연결된 다수 클라이언트에게 메시지를 전달할 수 있는 구조인 Pub/Sub 모델 제공. 
