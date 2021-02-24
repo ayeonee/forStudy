@@ -123,3 +123,105 @@ function exxxFunc(val : any){
         val.length;
     }
 }
+
+//interface - readonly
+interface User{
+    readonly name : string,
+    age: number
+}
+//초기화
+let user: User={
+    name : 'Neo',
+    age : 10
+};
+
+user.age=20;    //ok
+user.name='neo';    //error
+
+//모든 속성이 readonly 일때 
+//1. readonly Utility
+interface IUser {
+    name : string,
+    age : number
+}
+let uuser:Readonly<IUser>={
+    name:'neo',
+    age:36
+};
+uuser.age=9; //error
+uuser.name='eee'    //error
+
+//2.Type assertion
+let uuuser={
+    name:'qqq',
+    age:44
+} as const;
+uuuser.age=88; //error
+uuuser.name='eeeee' //error
+
+//interface-functional type
+interface fUser{
+    name : string
+}
+interface fGetUser{
+    (name:string) :fUser;
+}
+//매개변수 이름이 인터페이스와 일치할 필요x 
+//타입추론을 통해 매개변수를 순서에 맞게 암시적 타입으로 제공 가능. 
+const getUser: fGetUser=function(n){
+    return user;
+}
+getUser('Hmm');
+
+
+//interface-class type
+interface cUser{
+    name:string,
+    getName():string
+}
+
+class cUser implements cUser{
+    constructor(public name : string){}
+    getName(){
+        return this.name;
+    }
+}
+const neo=new cUser('Neo');
+neo.getName();      //Neo
+
+//정의한 클래스를 인수로 사용하는 경우 호출 가능한 구조가 아니기에 오류 발생
+interface ICat{
+    name : string
+}
+
+class Cat implements ICat{
+    constructor(public name : string) {}
+}
+function makeKitten(c:ICat, n:string){
+    return new c(n);    //error
+}
+const kitten = makeKitten(Cat, 'lucy');
+console.log(kitten);
+
+//해결위해 구성 시그니처 사용(Construct signature)
+interface ICatConstructor{
+    new (name:string) : ICat;
+}
+
+class Catt implements ICat{
+    constructor(public name : string) {}
+}
+function makeKittten(c:ICatConstructor, n:string){
+    return new c(n);    //ok
+}
+
+//index signature
+interface IItem{
+    [itemIndex : number] : string   //index signature
+}
+let item : IItem=['a','b','c'];
+console.log(item[0]);
+console.log(item[1]);
+console.log(item['0']); //error(문자로 인덱싱해서)
+
+
