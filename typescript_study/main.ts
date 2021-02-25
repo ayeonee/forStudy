@@ -224,4 +224,33 @@ console.log(item[0]);
 console.log(item[1]);
 console.log(item['0']); //error(문자로 인덱싱해서)
 
+//keyof
+interface ICountries{
+    KR:'대한민국',
+    US : '미국',
+    CP : '중국'
+}
+let country : keyof ICountries; //'KR' | 'US' | 'CP'
+country = 'KR';     //ok
+country = 'RU';     //error
+//타입 개별 값에도 접근 가능
+let countryy : ICountries[keyof ICountries];
+countryy='대한민국';
+countryy='러시아';  //error
 
+
+
+//인터페이스 확장 (interface extends)
+interface IAnimal{
+    name : string
+}
+interface IDog extends IAnimal{
+    meong():string
+}
+
+class Dog implements IDog{
+    name = 'lala';
+    meong(){
+        return 'meong meong';
+    }
+}

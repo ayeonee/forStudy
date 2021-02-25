@@ -95,3 +95,18 @@
 		new (PARAMETER : PARAM_TYPE) : RETURN_TYPE
 	}
 
+-인덱싱 가능 타입(Indexable types) : 수많은 속성을 가지거나 단언할 수 없는 임의의 속성이 포함되는 구조에서 유용하게 사용됨.
+	arr[2]와 같이 숫자로 인덱싱하거나 obj['name']과 같이 문자로 인덱싱함.
+	인덱싱에 사용할 인덱서(Indexer)의 이름과 타입, 인덱싱 결과의 반환 값을 지정. 
+	인덱서의 타입은 string과 number만 지정. 
+	interface INAME { 
+		[INDEXER_NAME : INDEXER_TYPE] : RETURN_TYPE
+	}
+	ex. interface IItem{
+		[itemIndex : number] : string | boolean | number[]
+	}
+	let item : IItem = [ 'Hello', false, [1,2,3]];
+
+	keyof : 속성 이름을 타입으로 사용할 수 있음. 인덱싱 가능 타입의 속성 이름들이 유니온 타입으로 적용.
+
+-인터페이스 확장 : extends 키워드 활용해 상속 가능, 같은 이름의 인터페이스를 여러개 만들 수 있음. (내용추가하는 경우에 유용)
