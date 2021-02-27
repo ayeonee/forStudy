@@ -254,3 +254,28 @@ class Dog implements IDog{
         return 'meong meong';
     }
 }
+
+//generic
+function toArray<T>(a:T, b:T): T[]{
+    return [a,b];
+}
+
+toArray<number>(1,2);
+toArray<string>('1', '2');
+toArray<number | string> (1, '2');
+//타입추론 활용해 타입 제공 안할수도 있음
+toArray(1,2);
+toArray(1,'2');     //error
+//interface나 타입별칭을 사용하는 제네릭 작성 가능
+interface MyType<T>{
+    name : string, 
+    value : T
+}
+const dataA : MyType<string>={
+    name:'Data A',
+    value : 'Hello world'
+};
+const dataB : MyType<number>={
+    name:'Data A',
+    value : 3
+};
